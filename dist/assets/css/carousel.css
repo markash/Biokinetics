@@ -3,9 +3,9 @@
 /* Padding below the footer and lighter body text */
 
 body {
-    padding-top: 6.5rem;
+    padding-top: 0rem;
     padding-bottom: 3rem;
-    color: rgb(var(--bs-tertiary-color-rgb));
+    /* color: rgb(var(--bs-tertiary-color-rgb)); */
   }
   
   
