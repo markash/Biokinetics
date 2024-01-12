@@ -1,0 +1,28 @@
+img.logo-full {
+    display: none;
+}
+
+img.logo-small {
+    height: 3.5rem!important;
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+
+    img.logo-full {
+        height: 3.5rem!important;
+        display: block;
+    }
+
+    img.logo-small {
+        display: none;
+    }
+}
+
+/* Padding to account for the sticker header height */
+#myCarousel {
+    padding-top: 3.5rem;
+}
