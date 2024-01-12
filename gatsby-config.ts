@@ -33,7 +33,7 @@ const config: GatsbyConfig = {
       "path": "./src/pages/"
     },
     __key: "pages"
-  }]
+  }, "gatsby-plugin-react-helmet"]
 };
 
 export default config;

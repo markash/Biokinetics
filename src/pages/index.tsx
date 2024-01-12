@@ -13,6 +13,7 @@ import Featurette from "../components/featurette";
 const IndexPage: React.FC<PageProps<Queries.BannerQuery>> = ({data}:PageProps<Queries.BannerQuery>) => {
   return (
     <Layout>
+      <SEO title="Home" />
       <Banner data={data} />  
       <Featurette />    
     </Layout>
