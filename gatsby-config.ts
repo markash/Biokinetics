@@ -2,11 +2,11 @@ import type { GatsbyConfig } from "gatsby";
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: `Monique Strydom`,
+    title: `Monique Strydom Biokineticist / Biokinetikus`,
+    description: `Monique Strydom | Witbank | Biokineticist | BIOKINETICS = Life through movement 🏋🏻‍♀️ Functional Rehab for Optimal Wellness 🧘🏻‍♀️ HPCSA & BASA`,
     author: `Mark Ashworth`,
-    description: `Monique Strydom Biokineticist`,
     social: {
-      twitter: `markashworth`,
+      twitter: `marcus_ashworth`,
     },
     siteUrl: `https://www.yourdomain.tld`
   },

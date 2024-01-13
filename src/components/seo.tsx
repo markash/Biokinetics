@@ -1,25 +1,56 @@
 import * as React from "react"
-import PropTypes from "prop-types"
-import Helmet from "react-helmet"
+import { useStaticQuery, graphql } from "gatsby"
+import { useLocation } from '@reach/router';
+import { Helmet } from "react-helmet"
 
+type ImageDataType = {
+    publicURL: string;
+};
 
-//import useSiteMetaData from "../hooks/use-site-metadata"
-type SEOProps = {
-    description: string
-    lang: string
-    meta: []
-    title: string
-}
+export type SeoProps = {
+    description?: string;
+    title: string;
+    featureImage?: ImageDataType;
+    lang?: string;
+    meta?: Array<{name: string, content: string}>
+};
 
-const SEO: React.FC<SEOProps>  = ({description, lang, meta, title}:SEOProps) => {
-    //const { title } = useSiteMetaData()
-    const metaDescription = description || `Monique Strydom Biokineticist`
+const Seo: React.FC<SeoProps>  = ({description, lang, meta, title, featureImage}:SeoProps) => {
+    
+    const { site, allFile } = useStaticQuery(
+        graphql`
+          query SeoMetaData {
+            site {
+              siteMetadata {
+                title
+                description
+                author
+                social {
+                    twitter
+                }
+              }
+            }
+            allFile(filter: {relativeDirectory: {eq: "social"}}) {
+                edges {
+                    node {
+                        publicURL
+                    }
+                }
+            }
+          }
+        `)
+
+    const metaDescription = description ?? site.siteMetadata.description
+    const metaTitle = title ?? site.siteMetadata.title
+    const metaImage = featureImage ?? (allFile.edges[0]?.node?.publicURL);
+    const location = useLocation();
+
     return (
         <Helmet 
             htmlAttributes={{
                 lang,
             }}
-            title={title}
+            title={metaTitle}
             meta={[
                 {
                     name: `description`,
@@ -27,7 +58,7 @@ const SEO: React.FC<SEOProps>  = ({description, lang, meta, title}:SEOProps) => 
                 },
                 {
                     property: `og:title`,
-                    content: title,
+                    content: metaTitle,
                 },
                 {
                     property: `og:description`,
@@ -38,37 +69,37 @@ const SEO: React.FC<SEOProps>  = ({description, lang, meta, title}:SEOProps) => 
                     content: `website`,
                 },
                 {
+                    name: 'og:url',
+                    content: `${site?.siteMetadata?.siteUrl}${location.pathname}`,
+                },
+                {
+                    property: `og:image`,
+                    content: metaImage,
+                },
+                {
                     property: `twitter:card`,
-                    content: `summary`,
+                    content: `summary_large_image`,
                 },
                 {
                     property: `twitter:creator`,
-                    content: `Monique Strydom`,
+                    content: site.siteMetadata.social.twitter,
                 },
                 {
                     property: `twitter:title`,
-                    content: title,
+                    content: metaTitle,
                 },
                 {
                     property: `twitter:description`,
                     content: metaDescription,
-                }
-            ].concat(meta)}
+                },
+                {
+                    name: 'twitter:image',
+                    content: metaImage,
+                },
+            ]
+        }
         />
     )
 }
 
-SEO.defaultProps = {
-    lang: `en`,
-    meta: [],
-    description: ``,
-}
-
-// SEO.propTypes = {
-//     description: PropTypes.string,
-//     lang: PropTypes.string,
-//     meta: PropTypes.arrayOf(PropTypes.object),
-//     title: PropTypes.string.isRequired,
-// }
-
-export default SEO
+export default Seo

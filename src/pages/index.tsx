@@ -7,13 +7,13 @@ import './index.css';
 
 import Layout from "../components/layout";
 import Banner from "../components/banner";
-import SEO from "../components/seo";
+import Seo from "../components/seo";
 import Featurette from "../components/featurette";
 
 const IndexPage: React.FC<PageProps<Queries.BannerQuery>> = ({data}:PageProps<Queries.BannerQuery>) => {
   return (
     <Layout>
-      <SEO title="Home" />
+      <Seo title="Monique Strydom Biokineticist / Biokinetikus 🥇🧘🏻‍♀️🏌🏻‍♀️" />
       <Banner data={data} />  
       <Featurette />    
     </Layout>
