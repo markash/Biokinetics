@@ -7,7 +7,7 @@ const Featurette: React.FC = () => {
     const { allFile } = useStaticQuery(
         graphql`
           query FeatureImageData {
-            allFile(filter: {relativeDirectory: {eq: "featurette"}}) {
+            allFile(filter: {relativeDirectory: {eq: "featurette"}, name: {in: ["feature-qualifications", "feature-qualifications-002"]}}) {
                 edges {
                     node {
                         publicURL
@@ -122,12 +122,11 @@ const Featurette: React.FC = () => {
                     Pilates, Weight Loss Programs, Rebound
                 </div>
                 <div className="col-md-5">
-                    <GatsbyImage image={featureImage}
-                            alt="What is a biokineticist" 
+                    {allFile.edges.map(({node}) => (
+                        <GatsbyImage image={node.childrenImageSharp[0].gatsbyImageData}
+                            alt="Qualification" 
                             className="featurette-image img-fluid mx-auto" />
-                    <GatsbyImage image={featureImage}
-                            alt="What is a biokineticist" 
-                            className="featurette-image img-fluid mx-auto" />
+                    ))}
                 </div>
             </div>
 
