@@ -8,7 +8,7 @@ const config: GatsbyConfig = {
     social: {
       twitter: `marcus_ashworth`,
     },
-    siteUrl: `https://www.yourdomain.tld`
+    siteUrl: `http://localhost:9000`
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
@@ -33,7 +33,22 @@ const config: GatsbyConfig = {
       "path": "./src/pages/"
     },
     __key: "pages"
-  }, "gatsby-plugin-react-helmet"]
+  }, "gatsby-plugin-sitemap",
+  {
+    resolve: 'gatsby-plugin-google-analytics',
+    options: {  
+      trackingId: "Test",
+      head: true
+    }
+  },
+  {
+    resolve: "gatsby-plugin-google-tagmanager",
+    options: {
+      id: "Test",
+      includeInDevelopment: true
+    },
+  }
+]
 };
 
 export default config;
