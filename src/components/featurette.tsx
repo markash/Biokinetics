@@ -1,15 +1,41 @@
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 
 const Featurette: React.FC = () => {
-    const { allFile } = useStaticQuery(
+    const { qualification, winderAdvert, summerAdvert } = useStaticQuery(
         graphql`
           query FeatureImageData {
-            allFile(filter: {relativeDirectory: {eq: "featurette"}, name: {in: ["feature-qualifications", "feature-qualifications-002"]}}) {
+            qualification: allFile(filter: {relativeDirectory: {eq: "featurette"}, name: {in: ["feature-qualifications", "feature-qualifications-002"]}}) {
                 edges {
                     node {
+                        id
+                        base
+                        publicURL
+                        childrenImageSharp {
+                            gatsbyImageData(quality: 100)
+                        }
+                    }
+                }
+            }
+            winderAdvert: allFile(filter: {relativeDirectory: {eq: "featurette"}, name: {in: ["feature-winter-advert-500x500"]}}) {
+                edges {
+                    node {
+                        id
+                        base
+                        publicURL
+                        childrenImageSharp {
+                            gatsbyImageData(quality: 100)
+                        }
+                    }
+                }
+            }
+            summerAdvert: allFile(filter: {relativeDirectory: {eq: "featurette"}, name: {in: ["feature-summer-advert-500x500"]}}) {
+                edges {
+                    node {
+                        id
+                        base
                         publicURL
                         childrenImageSharp {
                             gatsbyImageData(quality: 100)
@@ -18,11 +44,7 @@ const Featurette: React.FC = () => {
                 }
             }
           }
-        `)
-
-
-    const featureImage = allFile.edges[0]?.node?.childrenImageSharp[0]?.gatsbyImageData;
-    
+        `)    
 
     return (
         <>
@@ -73,7 +95,13 @@ const Featurette: React.FC = () => {
                     </p>
                 </div>
                 <div className="col-md-5 order-md-1">
-                    <StaticImage src="assets/jpg/what_is_biokineticist.jpg" alt="January Promo" className="featurette-image img-fluid mx-auto" />
+                    {summerAdvert.edges.map(({node}:any) => (
+                        <GatsbyImage image={node.childrenImageSharp[0].gatsbyImageData}
+                            alt={node.base}
+                            key={node.id}
+                            className="featurette-image img-fluid mx-auto" />
+                    ))}
+
                 </div>
             </div>
 
@@ -93,15 +121,20 @@ const Featurette: React.FC = () => {
                     </ul>
                 </div>
                 <div className="col-md-5">
-                    <StaticImage src="assets/jpg/advert_500x500.jpg" alt="August Winter Promotion" className="featurette-image img-fluid mx-auto" />
+                    {winderAdvert.edges.map(({node}:any) => (
+                        <GatsbyImage image={node.childrenImageSharp[0].gatsbyImageData}
+                            alt={node.base}
+                            key={node.id}
+                            className="featurette-image img-fluid mx-auto" />
+                    ))}
                 </div>
             </div>
 
             <hr className="featurette-divider" />
 
             <div className="row featurette">
-                <div className="col-md-7">
-                    <h2 className="featurette-heading fw-normal lh-1">MONIQUE STRYDOM <span
+                <div className="col-md-7  order-md-2">
+                    <h2 className="fw-normal lh-1">MONIQUE STRYDOM <span
                             className="text-body-secondary">Qualifications</span></h2>
                     <h5 className="featurette-sub-heading">Physical Health</h5>
                     Wellness Coaching, Physical Health Promotion & Preventative Treatment. Full Body Assessment (Including BMI and Body Fat Percentage), Health screenings and lifestyle management
@@ -122,9 +155,10 @@ const Featurette: React.FC = () => {
                     Pilates, Weight Loss Programs, Rebound
                 </div>
                 <div className="col-md-5">
-                    {allFile.edges.map(({node}) => (
+                    {qualification.edges.map(({node}:any) => (
                         <GatsbyImage image={node.childrenImageSharp[0].gatsbyImageData}
-                            alt="Qualification" 
+                            alt={node.base}
+                            key={node.id}
                             className="featurette-image img-fluid mx-auto" />
                     ))}
                 </div>
