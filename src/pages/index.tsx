@@ -7,13 +7,13 @@ import './index.css';
 
 import Layout from "../components/layout";
 import Banner from "../components/banner";
-import Seo from "../components/seo";
 import Featurette from "../components/featurette";
+import Seo from "../components/seo";
 
 const IndexPage: React.FC<PageProps<Queries.BannerQuery>> = ({data}:PageProps<Queries.BannerQuery>) => {
   return (
     <Layout>
-      <Seo title="Monique Strydom Biokineticist / Biokinetikus 🥇🧘🏻‍♀️🏌🏻‍♀️" />
+      
       <Banner data={data} />  
       <Featurette />    
     </Layout>
@@ -22,7 +22,9 @@ const IndexPage: React.FC<PageProps<Queries.BannerQuery>> = ({data}:PageProps<Qu
 
 export default IndexPage
 
-//export const Head: HeadFC = () => SEO.Head({title: "Home"})
+export const Head: HeadFC = () => Seo({title: "Monique Strydom Biokineticist / Biokinetikus 🥇🧘🏻‍♀️🏌🏻‍♀️"})
+
+//<Seo title="Monique Strydom Biokineticist / Biokinetikus 🥇🧘🏻‍♀️🏌🏻‍♀️" />
 
 export const pageQuery = graphql`
   query Banner {
