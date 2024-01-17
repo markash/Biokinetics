@@ -1,16 +1,38 @@
 import * as React from "react"
-import type { PageProps } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 
 import './carousel.css';
 
 import { Carousel } from 'react-bootstrap';
 
-const Banner: React.FC<PageProps<Queries.BannerQuery>> = ({data}:PageProps<Queries.BannerQuery>) => {
+const Banner: React.FC = () => {
+    const { allFile } = useStaticQuery(graphql`
+      query Banner {
+        allFile(
+          filter: {relativeDirectory: {eq: "carousel"}}
+          ) {
+            edges {
+              node {
+                id
+                base
+                publicURL
+                childrenImageSharp {
+                  gatsbyImageData(quality: 70)
+                }
+              }
+            }
+          }
+      }
+    `)
+
+    
+
     return (
         <Carousel>
-        {data.banner.edges.map(({node}) => (
+        {allFile.edges.map(({node}: any) => (
           <Carousel.Item key={node.id}>
+            
             <GatsbyImage
               image={node.childrenImageSharp[0].gatsbyImageData}
               alt={node.base}
