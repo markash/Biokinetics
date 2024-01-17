@@ -48,16 +48,16 @@ export default function Seo(props: Readonly<SeoProps>) {
             <title>{metaTitle}</title>
             <html lang={props.lang ?? "en"} />
             <meta name="description" content={metaDescription} />
-            <meta name="og.title" content={metaTitle} />
-            <meta name="og.description" content={metaDescription} />
-            <meta name="og.image" content={metaImage} />
-            <meta name="og.type" content="website" />
-            <meta name="og.url" content={`${site?.siteMetadata?.siteUrl}${location.pathname}`} />
-            <meta name="twitter.title" content={metaTitle} />
-            <meta name="twitter.description" content={metaDescription} />
-            <meta name="twitter.card" content="summary_large_image" />
-            <meta name="twitter.image" content={metaImage} />
-            <meta name="twitter.creator" content={site.siteMetadata.social.twitter} />
+            <meta name="og:title" content={metaTitle} />
+            <meta name="og:description" content={metaDescription} />
+            <meta name="og:image" content={metaImage} />
+            <meta name="og:type" content="website" />
+            <meta name="og:url" content={`${site?.siteMetadata?.siteUrl}${location.pathname}`} />
+            <meta name="twitter:title" content={metaTitle} />
+            <meta name="twitter:description" content={metaDescription} />
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:image" content={metaImage} />
+            <meta name="twitter:creator" content={site.siteMetadata.social.twitter} />
         </>
     )    
 }
