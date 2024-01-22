@@ -1,3 +1,4 @@
+import { StaticImage } from "gatsby-plugin-image";
 import * as React from "react"
 import { Nav, Navbar, Container } from "react-bootstrap"
 
@@ -7,18 +8,23 @@ interface NavigationBarProps {
 
 const NavigationBar: React.FC<NavigationBarProps> = ({title}: NavigationBarProps) => {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <>
+    <style type="text/css">
+      {`
+      .bg-body-tertiary {
+          --bs-bg-opacity: 1;
+          background-color: #016EC8 !important; 
+      }
+      `}
+    </style>
+    <Navbar expand="lg" className="bg-body-tertiary fixed-top">
       <Container>
-        <Navbar.Brand href="#home">{title}</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#blog">Blog</Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
+        <Navbar.Brand href="#home">
+          <StaticImage src="../images/logo/logo-white.webp" alt="Monique Strydom Biokineticist / Biokinetikus 🥇🧘🏻‍♀️🏌🏻‍♀️" placeholder="blurred" width={377} height={50} />
+        </Navbar.Brand>
       </Container>
     </Navbar>
+    </>
   )
 }
 
