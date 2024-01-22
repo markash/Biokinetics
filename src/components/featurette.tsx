@@ -1,7 +1,19 @@
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
+import { library } from '@fortawesome/fontawesome-svg-core'
+import {
+    faPhone,
+    faEnvelope,
+    faLocationDot
+  } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
+library.add(
+    faPhone,
+    faEnvelope,
+    faLocationDot
+)
 
 const Featurette: React.FC = () => {
     const { qualification, winderAdvert, summerAdvert } = useStaticQuery(
@@ -171,15 +183,15 @@ const Featurette: React.FC = () => {
 
             <hr className="featurette-divider" />
 
-            <div>
+            <div className="row featurette">
                 <address>
                     <h5>Monique Strydom Biokineticist</h5>
-                    <strong>Address</strong><br />
-                    Elizabeth Avenue, Hoërskool Generaal Hertzog Stadium 1035 Witbank, South Africa<br />
-                    <strong>Serving</strong><br />
+                    BIOKINETICS = Life through movement 🏋🏻‍♀️ Functional Rehab for Optimal Wellness🧘🏻‍♀️HPCSA & BASA<br /><br />
+                    <FontAwesomeIcon icon={faLocationDot} size="1x" /> Elizabeth Avenue, Hoërskool Generaal Hertzog Stadium 1035 Witbank, South Africa<br />
+                    <FontAwesomeIcon icon={faPhone} size="1x" /> 076 633 6503<br />
+                    <FontAwesomeIcon icon={faEnvelope} size="1x" /> Bio.witbank@gmail.com<br />
+                    <br /><strong>Serving</strong><br />
                     Witbank, South Africa<br />
-                    <i class="fa fa-phone" aria-hidden="true"></i>076 633 6503<br />
-                    Bio.witbank@gmail.com<br />
                 </address>
             </div>
 
