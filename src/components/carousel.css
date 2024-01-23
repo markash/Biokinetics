@@ -16,6 +16,7 @@ body {
   .carousel {
     margin-bottom: 4rem;
   }
+  
   /* Since positioning the image, we need to help out the caption */
   .carousel-caption {
     bottom: 3rem;
@@ -48,7 +49,7 @@ body {
   ------------------------- */
   
   .featurette-divider {
-    margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+    /* margin: 5rem 0; Space out the Bootstrap <hr> more */
   }
   
   /* Thin out the marketing headings */

@@ -1,13 +1,18 @@
 import * as React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
+import "./socialbanner.css"
+
 import { library } from '@fortawesome/fontawesome-svg-core'
+
 import {
     faPhone,
     faEnvelope,
-    faLocationDot
-  } from '@fortawesome/free-solid-svg-icons'
+    faLocationDot,
+} from '@fortawesome/free-solid-svg-icons'
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import GoogleMap from "./map"
 
 library.add(
     faPhone,
@@ -59,7 +64,6 @@ const Featurette: React.FC = () => {
         `)    
 
     return (
-        <>
         <div className="container marketing">
             <div className="row featurette">
                 <div className="col-md-12 order-md-1">
@@ -153,6 +157,9 @@ const Featurette: React.FC = () => {
             <div className="row featurette">
                 <div className="col-md-7  order-md-2">
                     <h2 className="fw-normal lh-1">MONIQUE STRYDOM</h2>
+                    BIOKINETICS = Life through movement 🏋🏻‍♀️ <br />
+                    Functional Rehab for Optimal Wellness🧘🏻‍♀️HPCSA & BASA<br /><br />
+
                     <h5 className="featurette-sub-heading">Physical Health</h5>
                     Wellness Coaching, Physical Health Promotion & Preventative Treatment. Full Body Assessment (Including BMI and Body Fat Percentage), Health screenings and lifestyle management
 
@@ -183,23 +190,22 @@ const Featurette: React.FC = () => {
 
             <hr className="featurette-divider" />
 
-            <div className="row featurette">
-                <address>
-                    <h5>Monique Strydom Biokineticist</h5>
-                    BIOKINETICS = Life through movement 🏋🏻‍♀️ Functional Rehab for Optimal Wellness🧘🏻‍♀️HPCSA & BASA<br /><br />
-                    <FontAwesomeIcon icon={faLocationDot} size="1x" /> Elizabeth Avenue, Hoërskool Generaal Hertzog Stadium 1035 Witbank, South Africa<br />
-                    <FontAwesomeIcon icon={faPhone} size="1x" /> 076 633 6503<br />
-                    <FontAwesomeIcon icon={faEnvelope} size="1x" /> Bio.witbank@gmail.com<br />
-                    <br /><strong>Serving</strong><br />
-                    Witbank, South Africa<br />
-                </address>
-            </div>
-
             <div className="row">
-                <iframe title="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3589.9594530317604!2d29.213647712560743!3d-25.870811877188807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1eeaed45bd247d3d%3A0xcb21a966ccc74c98!2sHo%C3%ABrskool%20Generaal%20Hertzog!5e0!3m2!1sen!2sza!4v1705151163444!5m2!1sen!2sza" width="600" height="450" allowFullScreen={true} loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+                <div className="col-6">
+                    <address>
+                        <FontAwesomeIcon icon={faLocationDot} size="1x" /> Elizabeth Avenue, Hoërskool Generaal Hertzog Stadium 1035 Witbank, South Africa<br />
+                        <FontAwesomeIcon icon={faPhone} size="1x" /> 076 633 6503<br />
+                        <FontAwesomeIcon icon={faEnvelope} size="1x" /> Bio.witbank@gmail.com<br />
+                        <br /><strong>Serving</strong><br />
+                        Witbank, South Africa<br />
+                    </address>
+                </div>
+                <div className="w-100 d-md-none d-sm-block"></div>
+                <div className="col-6">
+                    <GoogleMap />
+                </div>
             </div>
         </div>
-        </>
     )
 }
 
