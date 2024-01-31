@@ -49,7 +49,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
               <div className="row bg-footer-gray footer-row">
                 <div className="col-12">
                   <div className="row">
-                    <div className="col-6 col-md-4 text-white">
+                    <div className="col-12 col-md-8 text-white">
                       <StaticImage src="../images/logo/logo-white.webp" alt="Monique Strydom Biokineticist / Biokinetikus 🥇🧘🏻‍♀️🏌🏻‍♀️" placeholder="blurred" width={377} height={50} />
                       <address className="footer-address">
                           <FontAwesomeIcon icon={faLocationDot} size="1x" /> Elizabeth Avenue, Hoërskool Generaal Hertzog Stadium<br /> 1035 Witbank, South Africa<br />
