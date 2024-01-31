@@ -45,7 +45,7 @@ const config: GatsbyConfig = {
   {
     resolve: "gatsby-plugin-google-tagmanager",
     options: {
-      id: "Test",
+      id: "G-VR8BV8D7E0",
       includeInDevelopment: true
     },
   }
