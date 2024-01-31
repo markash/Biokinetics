@@ -38,7 +38,7 @@ const config: GatsbyConfig = {
   {
     resolve: 'gatsby-plugin-google-analytics',
     options: {  
-      trackingId: "Test",
+      trackingId: "G-VR8BV8D7E0",
       head: true
     }
   },
