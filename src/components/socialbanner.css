@@ -1,5 +1,16 @@
-.social-banner {
+
+.bg-footer-gray {
+    background-color: var(--bs-gray-800);
+}
+
+.footer-row {
     margin-top: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.social-banner {
+    margin-top: 0.5rem;
     padding-top: 1rem;
     padding-bottom: 1rem;
     text-align: center;
