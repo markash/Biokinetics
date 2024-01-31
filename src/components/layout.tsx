@@ -38,9 +38,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             <footer>
               <div className="row bg-body-tertiary social-banner">
                 <div className="col-12">
-                    <Link to="https://www.facebook.com/MoniqueStrydomBiokineticist?mibextid=LQQJ4d"><FontAwesomeIcon icon={faFacebook} size="2x" className="social-icon" /></Link>
-                    <Link to="https://www.instagram.com/msbiokineticist_witbank?igsh=MXhxN3BudmM3bzhlOA%3D%3D&utm_source=qr"><FontAwesomeIcon icon={faInstagram} size="2x" className="social-icon"/></Link>
-                    <Link to="https://twitter.com/"><FontAwesomeIcon icon={faXTwitter} size="2x" className="social-icon"/></Link>
+                    <Link to="https://www.facebook.com/MoniqueStrydomBiokineticist?mibextid=LQQJ4d" aria-label="Facebook"><FontAwesomeIcon icon={faFacebook} size="2x" className="social-icon" /></Link>
+                    <Link to="https://www.instagram.com/msbiokineticist_witbank?igsh=MXhxN3BudmM3bzhlOA%3D%3D&utm_source=qr" aria-label="Instagram"><FontAwesomeIcon icon={faInstagram} size="2x" className="social-icon"/></Link>
+                    <Link to="https://twitter.com/" aria-label="Twitter"><FontAwesomeIcon icon={faXTwitter} size="2x" className="social-icon"/></Link>
                 </div>
               </div>
             </footer>
